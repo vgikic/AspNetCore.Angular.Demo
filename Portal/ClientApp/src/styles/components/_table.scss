@@ -1,0 +1,34 @@
+.overview-table {
+    background-color: #fff;
+    margin-bottom: 2.563rem;
+}
+
+.overview-table > .form-filter {
+    padding: 0 1.5rem;
+    width: 100%;
+}
+
+.overview-table--all-referendums .mat-row:hover {
+    background-color: #c6c2c2
+}
+
+.mat-table {
+    cursor: pointer;
+}
+
+.mat-table .mat-header-cell {
+    font-weight: bold;
+}
+
+.title--table {
+    padding: 1.375rem 1.5rem 0;
+
+    .mat-icon {
+        position: relative;
+        top: 4px;
+    }
+}
+
+.mat-chip.mat-standard-chip {
+    border-radius: 3px;
+}

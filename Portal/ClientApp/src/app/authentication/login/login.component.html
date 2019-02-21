@@ -1,0 +1,105 @@
+<app-header></app-header>
+
+<div style="width:90%" class="container md container--overview a-examples">
+
+  <mat-card class="container md">
+
+    <span class="basic-text">
+      JWT Authentication / Authorization
+    </span>
+
+    <div class="text-lg">
+      <p>Web API Uses ASP.NET Identity with custom User and Role Store.</p>
+      <p>This is simple example but ASP.NET Identity supports many features such as account locking, password reset,
+        confirmation e-mails, multi-factor authentication...</p>
+      <p><span class="basic-text">UserManager, RoleManager and SignInManager</span> are used for performing operations.</p>
+      <p>Claims are used for authorization but roles are also supported.</p>
+      <p>Authorization header with token is added to each request in AuthenticationInterceptorService. </p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="registering ? register() : login()">
+      <div *ngIf="!userAuth?.isAuthenticated">
+        <section class="ref-details__container">
+          <section class="ref-details__general-info">
+
+            <mat-form-field class="form-full-width md" appearance="fill">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput placeholder="E-mail" formControlName="email" [errorStateMatcher]="matcher"
+                autofocus>
+              <mat-icon matSuffix>account_circle</mat-icon>
+              <mat-error *ngIf="loginForm.get('email').hasError('required')">Email is
+                <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="loginForm.get('email').hasError('email')">Please enter
+                <strong>valid</strong> email.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-full-width md" appearance="fill">
+              <mat-label>Password</mat-label>
+              <input [type]="showPassword ? 'text' : 'password'" matInput placeholder="Password" formControlName="password"
+                [errorStateMatcher]="matcher">
+              <mat-icon matSuffix (mouseup)="showPassword = false" (mousedown)="showPassword = true">{{showPassword ?
+                'visibility' :
+                'visibility_off'}}</mat-icon>
+              <mat-error *ngIf="loginForm.get('password').hasError('required')"> Password is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </section>
+        </section>
+
+        <div>
+          <button mat-raised-button color="primary" type="submit" class="btn btn--large">{{registering ? 'Register' :
+            'Login!'}}</button>
+        </div>
+
+        <div style="margin-top:25px">
+          <button type="button" (click)="registering = !registering" mat-raised-button color="primary" class="btn btn--large">
+            {{registering ? 'Alread have an account? Login' : 'Dont have account? Register!'}}</button>
+        </div>
+      </div>
+      <div *ngIf="userAuth?.isAuthenticated">
+        <button type="button" (click)="logout()" mat-raised-button color="primary" class="btn btn--large">Logout</button>
+      </div>
+    </form>
+
+    <div *ngIf="userAuth?.isAuthenticated">
+
+      <div class="text-lg">
+        <p> <span class="basic-text"> To see contents of JWT, copy it here: <a style="color:whitesmoke" href="https://jwt.io/"
+              target="_blank">JWT
+              IO</a></span> </p>
+      </div>
+      
+      <div>
+        <pre>
+          {{userAuth | json}}
+        </pre>
+      </div>
+
+      <div>
+        <button (click)="getDataForAuthorizedUsers()" mat-raised-button color="primary" class="btn btn--large">Authorized
+          Users</button>
+        <p>Response: {{authUsersResponse}}</p>
+      </div>
+
+      <div>
+        <button (click)="getDataForAdmins()" mat-raised-button color="primary" class="btn btn--large">Admins</button>
+        <p>Response: {{adminDataResponse}}</p>
+      </div>
+
+      <div>
+        <button (click)="getDataForSupport()" mat-raised-button color="primary" class="btn btn--large">Support</button>
+        <p>Response: {{supportDataResponse}}</p>
+      </div>
+
+      <div>
+        <button (click)="tryGettingUnattainableData()" mat-raised-button color="primary" class="btn btn--large">You
+          Cant Enter</button>
+        <p>Response: {{unauthorizedResponse}} </p>
+      </div>
+
+    </div>
+
+  </mat-card>
+</div>

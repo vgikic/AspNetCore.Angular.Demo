@@ -1,0 +1,28 @@
+.status-bullet.mat-icon {
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+}
+
+.status-bullet--active,
+.status-bullet--finished {
+    background-color: #39ca74;
+}
+
+.status-light--blocked,
+.status-light--canceled {
+    background-color: #e54d42;
+}
+
+.status-bullet--inactive {
+    background-color: #ceced2;
+}
+
+.status-bullet--published,
+.status-bullet--pre-approved {
+    background-color: #fd9727;
+}
+
+.status-bullet--in-progress {
+    background-color: #1eaaf1;
+}

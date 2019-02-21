@@ -1,0 +1,28 @@
+/*
+    Start of 'layouts' section.
+*/
+
+// This is the root file for 'layouts' folder.
+// Every single file from 'layouts' folder, that containes styles for this app, needs to be imported in this file.
+
+// Style import for 'header' component
+/*
+    -- start_header --
+*/
+@import "header";
+/*
+    -- end_header --
+*/
+
+// Style import for 'footer' component
+/*
+    -- start_footer --
+*/
+@import "footer";
+/*
+    -- end_footer --
+*/
+
+/*
+    End of 'layouts' section.
+*/

@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+*.txt
+*.dbmdl
+/DB/bin/Debug
+/DB/obj/Debug
+/DB/DB.jfm
+/Administration/ClientApp/.vscode/settings.json
+bin/
+obj/
+*.refactorlog
+*.jfm
+*.dbmdl
+/Angular.Core/Todo.md

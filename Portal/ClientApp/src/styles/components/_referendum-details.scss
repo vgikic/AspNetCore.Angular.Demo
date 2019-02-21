@@ -1,0 +1,180 @@
+/*
+    Create referendum stepper styles
+*/
+
+.mat-stepper-horizontal {
+    background-color: transparent;
+
+    .mat-horizontal-content-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+/*
+    General tabulator layout styles
+*/
+
+.mat-tab-header { border-bottom: none; }
+
+.mat-tab-body {
+    padding-top: 2rem;
+
+    // Because of the scrollbar on the side
+    .mat-tab-body-content { overflow: hidden; }
+}
+
+/*
+    Tab content container
+*/
+
+.ref-details__container { width: 100%; }
+
+/*
+    General tab styles
+*/
+
+.ref-details__general-info {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .mat-form-field {
+        width:100%;
+        float: left;
+        margin: 20px;
+        font-size: 1.3rem;
+    }
+
+    .form-section{
+        width:100%;
+        float: left;
+        margin: 20px;
+        font-size: 1.1rem;
+    }
+}
+
+
+.ref-details__date-info {
+    display: flex;
+    justify-content: space-between;
+
+    .mat-form-field {
+        width: 32%;
+        margin-bottom: 1rem;
+    }
+}
+
+.ref-details__segmentation .mat-checkbox-layout { padding-bottom: 1rem; }
+
+.ref-details__segmentation .mat-radio-button {
+    display: block;
+    padding-bottom: 1rem;
+}
+
+.segmentation__age .mat-form-field {
+    margin-bottom: 3rem;
+    width: 32%;
+
+    + .mat-form-field { margin-left: 1rem; }
+}
+
+.segmentation__residence .ng-select .ng-select-container {
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 4px 4px 0 0;
+    padding: .75em .75em 0 .75em;
+
+    &:after { left: 0; }
+}
+
+/*
+    Questions tab styles
+*/
+
+// Because of "delete question" button
+.ref-details__question-header {
+    display: flex;
+
+    .btn {
+        position: absolute;
+        right: 0;
+    }
+}
+
+// To center "new question" button at the bottom
+.question__btn-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.question__question-text .mat-form-field { width: 80%; }
+
+.question__answer .mat-form-field { width: 40%; }
+
+// To center "add answer" button under the .question__answer input field
+.answer__btn-container {
+    width: 40%;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/*
+    Results tab styles
+*/
+
+.ref-details__status-history .mat-divider,
+.ref-details__results .mat-divider { padding-top: 1rem; }
+
+.ref-results-overview {
+    display: flex;
+    align-items: baseline;
+
+    .mat-icon { vertical-align: middle; }
+}
+
+.voters-container span {
+    margin-left: 1rem;
+    margin-right: 1.3rem;
+}
+
+.ref-details__results {
+    .overline { display: block; }
+
+    .headline {
+        width: 40%;
+        display: inline-block;
+    }
+}
+
+.results__container {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+}
+
+.results__answers { width: 25%; }
+
+.results__graph-chart {
+    width: 18.75rem;
+    height: 9.375rem;
+}
+
+/*
+    Status history tab styles
+*/
+
+.comment-icon {
+    font-size: 1rem;
+    width: 1rem;
+    height: 1rem;
+    transform: translateY(5px);
+}
+
+.status-history__user-status-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 23rem;
+    width: 70%;
+}

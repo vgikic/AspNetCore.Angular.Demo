@@ -1,0 +1,22 @@
+.mat-card.user-preview {
+    position: absolute;
+    right: 1rem;
+    top: 75%;
+    z-index: 1;
+    text-align: center;
+    padding-bottom: 0;
+
+    .mat-card-title {
+        font-size: 1rem;
+        font-weight: bold;
+        color: $mdc-theme-primary;
+    }
+
+    .mat-card-subtitle {
+        font-size: .875rem;
+
+        span + span::before { content: "\0025CF"; }
+    }
+
+    .mat-card-actions { margin-bottom: 0; }
+}

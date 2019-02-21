@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css?family=Overpass&subset=latin-ext");
+
+.title {
+    color: $mdc-theme-primary;
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+
+.overline {
+    font-size: .75rem;
+    font-weight: 600;
+    line-height: 1.29;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.headline {
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: normal;
+}
+
+.headline--large {
+    font-size: 2.188rem;
+    letter-spacing: .3px;
+}
+
+.headline--small {
+    font-size: 1.25rem;
+    letter-spacing: .3px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.body-text {
+    font-size: .875rem;
+    line-height: 1.38;
+    letter-spacing: .3px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.body-text--small,
+.body-text--secondary {
+    opacity: .5;
+}

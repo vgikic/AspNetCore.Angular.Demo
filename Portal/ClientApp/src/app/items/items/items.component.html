@@ -1,0 +1,9 @@
+ <app-header></app-header>
+<div class="container container--overview" style="margin-bottom:10px;width:90%">
+    <dx-data-grid style="margin-top:80px" #itemGrid id="itemsContainer"></dx-data-grid>
+    <div class="new-item-btn" >
+        <a style="width:100%" mat-button [routerLink]='["/item/edit/0"]'>
+            <mat-icon>note_add</mat-icon>Add item
+        </a>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div style="margin-top:10px; margin-bottom:10px;" [ngSwitch]="exampleType">
+
+  <div style="margin-top:10px; margin-bottom: 10px;"> <mat-divider></mat-divider></div>
+  
+
+  <div *ngSwitchCase="0">
+    <h4>Basic use of component selector.</h4>
+  </div>
+
+  <div *ngSwitchCase="1">
+    <h4>Data from service:</h4>
+    <span *ngFor="let i of data">{{i}}</span>
+  </div>
+
+  <div *ngSwitchCase="2">
+    <h4>Data from parent:</h4>
+    <pre style="color:whitesmoke">
+              <code >{{dataFromParent | json}}</code>
+          </pre>
+  </div>
+
+  <div *ngSwitchCase="3">
+    <button (click)="onBtnClick()">Emit event to parent</button>
+  </div>
+
+  <div *ngSwitchCase="4">
+      <h4>Referencing child component through template variable</h4>
+    </div>
+
+  <div *ngSwitchCase="5">
+    <ng-content select=".parent-body"></ng-content>
+    <ng-content select=".parent-title"></ng-content>
+  </div>
+
+  <div style="margin-top:10px; margin-bottom: 10px;"> <mat-divider></mat-divider></div>
+
+
+</div>

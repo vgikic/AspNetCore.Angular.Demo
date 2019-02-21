@@ -1,0 +1,1 @@
+﻿{"ContextClassName":"AppDbCtx","DefaultDacpacSchema":null,"IdReplace":false,"IncludeConnectionString":true,"OutputPath":"DAL","ProjectRootNamespace":"Portal","SelectedToBeGenerated":0,"Tables":["idm.Roles","idm.UserRoles","idm.Users"],"UseDatabaseNames":false,"UseFluentApiOnly":true,"UseHandleBars":false,"UseInflector":true}

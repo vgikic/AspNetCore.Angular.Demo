@@ -1,0 +1,19 @@
+.footer {
+    background-color:$bg-clr;
+    box-shadow: 0 -1px 2px 0 #b6b6b6;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    .container {
+        display: flex;
+        align-items: center;
+        padding-bottom: 1.3rem;
+
+        .btn--outlined {
+            margin-left: 1rem;
+        }
+    }
+}

@@ -1,0 +1,169 @@
+<app-header></app-header>
+
+<div style="width:90%" class="container md container--overview a-examples">
+
+    <mat-tab-group dynamicHeight>
+
+        <mat-tab class="tab-title" label="BASICS">
+
+            <span class="basic-text">
+                ABOUT
+            </span>
+
+            <div class="text-lg">
+                <p>Redux is a pattern that tries to handle complexity that arises from managing application state by
+                    hand. </p>
+                <p>There is only one object that stores whole application state.</p>
+                <p>Application state is read only and the only way to mutate it is to completely replace it with new
+                    state which is done by emitting action that describes what happened. Those actions are passed
+                    through <i>pure</i> function called a <span class="basic-text">reducer</span> which returns next
+                    application state.</p>
+
+            </div>
+
+            <span class="basic-text">
+                PROJECT STRUCTURE
+            </span>
+
+            <div class="text-lg">
+                <p>Each module should represent application's <i>sub-state</i> which means each module should define
+                    four major components:</p>
+                <ul>
+                    <li><span class="basic-text">Index</span> - <i>defines sub-state selectors</i></li>
+                    <li><span class="basic-text">Actions</span> - <i>defines types of actions that can happen in
+                            current sub-state</i></li>
+                    <li><span class="basic-text">Reducer</span> - <i>pure function that sets initial state and returns
+                            next state depending on action</i> </li>
+                    <li><span class="basic-text">Effects</span> - <i>listens for specific actions and handles
+                            observables returned from HTTP calls. Passes the result to reducer. </i> </li>
+                </ul>
+                <p> <span class="basic-text"><i>Note: </i></span><i> you need to be fairly comfortable (or at least
+                        have decent ammount of examples from which you can conclude what the result of effect will be so you can use the right one )
+                        with  <span class="basic-text">RxJS</span> library since it's heavily used by @ngrx/effects. RxJS is out of scope of this demo :( </i></p>
+            </div>
+        </mat-tab>
+
+        <mat-tab class="tab-title" label="EXAMPLES">
+
+            <span class="basic-text">
+                ACTION DISPACH / SUBSCRIPTIONS
+            </span>
+
+            <div style="margin-top:-10px;" class="description-text">
+
+                <p> Clicking on button bellow will dispatch <span class="basic-text">Load </span> action defined in
+                    <span class="basic-text"> '../state/actions.ts'</span>. This action is caught by <span class="basic-text">ItemsEffects</span>
+                    ('../state/effects.ts') which performs AJAX request. </p>
+                <p> Depending on result, either <span class="basic-text">LoadSuccess</span> or <span class="basic-text">FailedAction</span>
+                    is dispatched. </p>
+                <p> Action result will go through <span class="basic-text">reducer</span> which will update Application
+                    State.
+                </p>
+                <p> Everybody subscribed to either of these events directly or through <span class="basic-text">getItems
+                        selector
+                    </span> defined in '../state/index.ts' will get notified with new payload based on response.
+                </p>
+
+            </div>
+
+            <div style="margin-top:20px" class="text-lg">
+                <button (click)="dispatchLoadAction()" mat-button style="background-color:#03A9F4;color:whitesmoke;">
+                    Dispatch
+                    Load Action
+                </button>
+
+                <div *ngIf="items.length" style="margin-top:40px;">
+                    <div class="description-text">
+
+                        <p> Click on any item to trigger <span class="basic-text">GetById Action</span>. When action
+                            completes
+                            Store is updated. </p>
+                        <p> Both Components are subscribed to <span class="basic-text">getSelectedItem</span> through
+                            ngrx
+                            selector. Each time Value in Store changes new value is 'pushed' to all subscribers.
+                        </p>
+                        <p> <span class="basic-text"><i>Note: </i></span><i>Component's subscription is done through
+                                'async' pipe in HTML.</i></p>
+
+                    </div>
+
+                    <nav mat-tab-nav-bar>
+                        <button mat-stroked-button class="primary btn--outlined btn--medium" style="margin-left:5px"
+                            *ngFor="let i of items" (click)="setSelectedItem(i.id)" mat-button>{{i.name}}
+                        </button>
+
+                    </nav>
+
+                    <p> <span class="basic-text"><i>Note: </i></span><i>Notice how when you navigate back to this url
+                            data
+                            is already fetched from the store</i></p>
+                </div>
+
+            </div>
+
+            <div style="display:inline-block;border:1px solid whitesmoke; width:300px;height:200px;margin-left:300px;margin-top:20px">
+                <compA></compA>
+            </div>
+            <div style="display:inline-block;border:1px solid whitesmoke; width:300px;height:200px;margin-left:350px;margin-top:20px">
+                <compB></compB>
+            </div>
+
+            <div style="margin-top:50px;">
+                <span class="basic-text">
+                    SUBSCRIBING TO ACTIONS
+                </span>
+
+                <div style="margin-top:-10px;" class="description-text">
+                    <p> Instead of using selectors you can subscribe to specific action by using <span class="basic-text">Actions
+                            service
+                        </span> defined in '@ngrx/effects'. </p>
+                    <p> Use constructor injection to inject it into your component / service. </p>
+                    <p> In the example below, SnackBarService is subscribed to <span class="basic-text">ItemsActionTypes.FailedAction</span>
+                        through Actions service. </p>
+                    <p> Each time FailedAction is dispatched, SnackBarService gets notification through subscription.
+                    </p>
+
+                </div>
+                <div style="margin-top:20px" class="text-lg">
+                    <button (click)="dispatchGetBadRequestAction()" mat-button style="background-color:#03A9F4;color:whitesmoke;">
+                        Dispatch
+                        Action That Fails
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div style="margin-top:50px;">
+                <span class="basic-text">
+                    REDUX DEV TOOLS
+                </span>
+
+                <div style="margin-top:-10px;" class="description-text">
+                    <p> You can use this extension for Chrome or other available non-browsers to help you with debugging.
+                        </p>
+                    <p> Npm : @ngrx/store-devtools </p>
+                    <p> Initialize <span class="basic-text">StoreDevtoolsModule</span> in your app main module.</p>
+                    <p> After you installed and open the extension you can examine changes to application state and individual
+                        actions which is very helpful during debugging.</p>
+
+
+                    <img style="margin-left:15%" src="../../../assets/ReduxDevTools.PNG" />
+
+                </div>
+                <!-- <div style="margin-top:20px" class="text-lg">
+                        <button (click)="dispatchGetBadRequestAction()" mat-button style="background-color:#03A9F4;color:whitesmoke;"> Dispatch
+                            Action That Fails
+                        </button>
+    
+                    </div> -->
+
+            </div>
+
+        </mat-tab>
+
+
+    </mat-tab-group>
+    <br>
+    <br>
+</div>

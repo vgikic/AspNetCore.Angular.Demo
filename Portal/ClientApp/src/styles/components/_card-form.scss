@@ -1,0 +1,59 @@
+.body-content .container.container--login {
+  margin-left: auto;
+  padding: 10rem 0;
+  align-items: center;
+}
+
+.body-content .container .mat-card.card {
+  width: 50%;
+  padding: 2.688rem 6rem 3.188rem;
+}
+
+.card .mat-card-header {
+  justify-content: center;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 1.5rem;
+  flex-direction: column-reverse;
+}
+
+.container--login .mat-form-field {
+  margin-bottom: 2.5rem;
+}
+
+.password-change .btn,
+.password-reset-form .mat-button {
+  margin-top: 1.5rem;
+  text-transform: initial;
+  letter-spacing: .3px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.mat-card-header .mat-card-title,
+.password-reset-disclaimer {
+  font-size: 1rem;
+  line-height: 1.69;
+  letter-spacing: .5px;
+}
+
+.mat-card-header .mat-card-subtitle {
+  font-size: .75rem;
+  font-weight: 600;
+  line-height: 1.29;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.password-reset-disclaimer {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/*
+  Route not found and Forbidden pages
+*/
+
+.container--error-page .card {
+  text-align: center;
+  margin: 6rem auto;
+}

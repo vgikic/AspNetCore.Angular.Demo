@@ -1,0 +1,26 @@
+.container--user-details {
+    display: flex;
+    font-size: .875rem;
+
+    fieldset {
+        border: none;
+        padding: 0;
+
+        > * {
+            padding-bottom: 1rem;
+        }
+    }
+}
+
+.container__item + .container__item {
+    margin-left: 10rem;
+}
+
+.user-details--tech-data {
+    font-size: 1rem;
+    margin-top: 3.188rem;
+}
+
+.label {
+    font-size: .75rem;
+}

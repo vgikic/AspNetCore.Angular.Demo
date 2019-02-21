@@ -1,0 +1,50 @@
+<app-header></app-header>
+<div style="width:90%;" class="container md container--overview a-examples">
+
+  <br/>
+  <h3 class="basic-text">
+    <u>ABOUT</u>
+  </h3>
+
+  <div class="text-lg">
+    <p>Adds real-time functionality to web applications.</p>
+    <p>Server side-code pushes content to clients instantly.</p>
+    <p>Communication is handled by WebSockets, Server-Sent Events or Long Polling depending on capabilities of the
+      server and client. </p>
+    <p><span class="basic-text">Startup.cs: </span> Register SignalR middleware</p>
+    <p><span class="basic-text">NPM:</span> @aspnet/signalr</p>
+  </div>
+
+  <h3 class="basic-text">
+    <u>CONNECTED CLIENTS</u>
+  </h3>
+
+  <div class="text-lg">
+    <ul>
+      <li>Have one or more application instances opened @http://localhost:4200/signalr</li>
+      <li>Each time new client connects or disconnects, all other clients are notified</li>
+    </ul>
+    <h3 style="color:whitesmoke">List of connected clients:</h3>
+    <ul>
+      <li *ngFor="let client of connectedClients">{{client.id}}</li>
+    </ul>
+  </div>
+
+  <h3 class="basic-text">
+    <u>LAST UPDATED ITEM</u>
+  </h3>
+
+  <div class="text-lg">
+    <ul>
+      <li>Have one or more application instances opened @http://localhost:4200/signalr </li>
+      <li>Open another application instance @http://localhost:4200/item/overview and edit one
+        of the items</li>
+      <li>Watch all clients @http://localhost:4200/signalr get notification on updated item
+      </li>
+    </ul>
+    <pre style="color:whitesmoke">
+      <code >{{lastUpdatedItem | json}}</code>
+  </pre>
+  </div>
+
+</div>

@@ -1,0 +1,27 @@
+.mat-horizontal-stepper-header .mat-step-icon-not-touched {
+    width: 36px;
+    height: 36px;
+}
+
+.mat-horizontal-stepper-header .mat-step-icon {
+    width: 55px;
+    height: 55px;
+}
+
+.mat-horizontal-stepper-header-container {
+    margin-bottom: 2rem;
+}
+
+.mat-horizontal-stepper-header .mat-badge-medium.mat-badge-overlap.mat-badge-before .mat-badge-content,
+.mat-horizontal-stepper-header .mat-badge-medium.mat-badge-overlap.mat-badge-before,
+.mat-horizontal-stepper-header .mat-badge-medium.mat-badge-before {
+    margin-left: 0;
+}
+
+.mat-horizontal-stepper-header .mat-badge-medium.mat-badge-overlap.mat-badge-before .mat-badge-content {
+    left: -22px;
+}
+
+.mat-horizontal-stepper-header .mat-badge-medium.mat-badge-before .mat-badge-content {
+    top: -22px;
+}

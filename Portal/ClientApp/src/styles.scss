@@ -1,0 +1,11 @@
+@import "styles/vendors/normalize.scss";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "styles/themes/_theme.scss";
+
+@import "styles/abstracts/_variables.scss";
+@import "styles/abstracts/_helpers.scss";
+
+@import "styles/base/__base.scss";
+@import "styles/layouts/__layouts.scss";
+@import "styles/components/__components.scss";
+@import "~@ng-select/ng-select/themes/material.theme.css";

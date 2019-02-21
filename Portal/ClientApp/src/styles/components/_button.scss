@@ -1,0 +1,28 @@
+.btn {
+    text-transform: uppercase;
+    font-size: .875rem;
+    font-weight: bold;
+    line-height: 1.11;
+    letter-spacing: 1.3px;
+}
+
+.btn--large {
+    display: block;
+    width: 100%;
+}
+
+.btn--medium {
+    width: 15rem;
+}
+
+.btn--right {
+    float: right;
+}
+
+.btn--outlined {
+    color: $bg-clr;
+
+    &.mat-stroked-button {
+        border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+}

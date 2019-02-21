@@ -1,0 +1,12 @@
+.mat-tab-nav-bar {
+  border-bottom: none;
+}
+
+.mat-tab-link {
+  font-family: 'Overpass', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1.25px;
+}
+
+.mat-tab-nav-bar.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus {
+  background-color: none;
+}

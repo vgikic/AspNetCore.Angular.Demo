@@ -1,0 +1,51 @@
+<mat-nav-list class="container md sheet">
+
+  <a mat-list-item [routerLink]="['/angular/example']" (click)="openLink($event)">
+    <span class="sheet-title" mat-line>ANGULAR FUNDAMENTALS</span>
+    <span class="sheet-item" mat-line>Data Binding</span>
+    <span class="sheet-item" mat-line>Routing & Navigation</span>
+    <span class="sheet-item" mat-line>Dynamic Forms</span>
+    <span class="sheet-item" mat-line>Component Communication</span>
+    <span class="sheet-item" mat-line>HTTP</span>
+    <span class="sheet-item" mat-line>Pipes</span>
+    <span class="sheet-item" mat-line>CLI</span>
+  </a>
+
+  <a mat-list-item [routerLink]="['/item/overview']" (click)="openLink($event)">
+    <span class="sheet-title" mat-line>CRUD</span>
+    <span class="sheet-item" mat-line>Dev Extreme Data Table</span>
+    <span class="sheet-item" mat-line>Reactive Forms</span>
+    <span class="sheet-item" mat-line>Frequently Used Form Controls</span>
+    <span class="sheet-item" mat-line>Validation</span>
+    <span class="sheet-item" mat-line>NG Material Design</span>
+  </a>
+
+  <a mat-list-item [routerLink]="['/gallery/example']" (click)="openLink($event)">
+    <span class="sheet-title" mat-line>IMAGE GALLERY</span>
+    <span class="sheet-item" mat-line>Dev Extreme Image Gallery</span>
+    <span class="sheet-item" mat-line>Image upload / download</span>
+  </a>
+
+  <a mat-list-item [routerLink]="['/rx/example']" (click)="openLink($event)">
+    <span class="sheet-title" mat-line>REACTIVE PROGRAMMING / REDUX PATTERN</span>
+    <span class="sheet-item" mat-line>Pattern basics</span>
+    <span class="sheet-item" mat-line>NgRx Store</span>
+    <span class="sheet-item" mat-line>NgRx Effects</span>
+    <span class="sheet-item" mat-line>Examples</span>
+  </a>
+
+  <a mat-list-item [routerLink]="['/authentication/login']" (click)="openLink($event)">
+    <span class="sheet-title" mat-line>SECURITY</span>
+    <span class="sheet-item" mat-line>Authentication / Authorization</span>
+    <span class="sheet-item" mat-line>JSON Web Tokens</span>
+    <span class="sheet-item" mat-line>Sign in / Sign out</span>
+    <span class="sheet-item" mat-line>Roles / Claims</span>
+  </a>
+
+  <a mat-list-item [routerLink]="['/signalr']" (click)="openLink($event)">
+    <span class="sheet-title" mat-line>SignalR</span>
+    <span class="sheet-item" mat-line>Hubs</span>
+    <span class="sheet-item" mat-line>Examples</span>
+  </a>
+
+</mat-nav-list>

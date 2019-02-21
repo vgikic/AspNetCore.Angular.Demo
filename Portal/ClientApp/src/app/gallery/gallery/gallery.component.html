@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="upload()">
+            <dx-file-uploader formControlName="files" [multiple]="true" accept="image/* " uploadMode="userButtons"></dx-file-uploader>
+        <div class="new-item-btn">
+            <button [disabled]="isUploadBtnDisabled()" type="submit" style="width:100%" mat-stroked-button>
+                <mat-icon>cloud_upload</mat-icon>UPLOAD</button>
+        </div>
+
+    </form>
+</div>
+
+<div style="margin-top:10px">
+    <div *ngIf="files$ | async as files" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="0.5%" fxLayoutAlign="center">
+        <mat-card class="card-picture container md" *ngFor="let file of files">
+            <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+                <span fxFlex="70%">{{file.name}}</span>
+                <mat-icon style="cursor:pointer" fxFlex="15%" (click)="deleteFile(file.fullName)">delete</mat-icon>
+                <a fxFlex="15%" [href]="getHref(file.fullName)"><mat-icon style="cursor:pointer;color:whitesmoke;">get_app</mat-icon></a>
+            </mat-card-title>
+            <img mat-card-image [src]="getSrc(file.base64)" alt="wtf">
+        </mat-card>
+    </div>
+</div>
+
+<div class="ref-details__general-info">
+    <dx-gallery #gallery id="gallery" [dataSource]="galleryDataSource" [height]="550" [slideshowDelay]="1000" [loop]="true" [showNavButtons]="true"
+        [showIndicator]="true"></dx-gallery>
+</div>

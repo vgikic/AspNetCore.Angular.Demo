@@ -1,0 +1,109 @@
+/*
+    Start of 'components' section.
+*/
+
+// This is the root file for 'components' folder.
+// Every single file from 'components' folder, that containes styles for this app, needs to be imported in this file.
+
+// Style import for 'buttons' component
+/*
+    -- start_button --
+*/
+@import "button";
+/*
+    -- end_button --
+*/
+
+// Style import for 'card-form' component 
+/*
+    -- start_card-form --
+*/
+@import "card-form";
+/*
+    -- end_card-form --
+*/
+
+// Style import for 'confirmation dialog' component 
+/*
+    -- start_confirmation-dialog --
+*/
+@import "conf-dialog";
+/*
+    -- end_confirmation-dialog --
+*/
+
+// Style import for 'referendum-details' component 
+/*
+    -- start_referendum-details --
+*/
+@import "referendum-details";
+/*
+    -- end_referendum-details --
+*/
+
+// Style import for 'status-bullet' component 
+/*
+    -- start_status-bullet --
+*/
+@import "status-bullet";
+/*
+    -- end_status-bullet --
+*/
+
+// Style import for 'grouping-select' component 
+/*
+    -- start_grouping-select --
+*/
+@import "grouping-select";
+/*
+    -- end_grouping-select --
+*/
+
+// Style import for 'stepper' component 
+/*
+    -- start_stepper --
+*/
+@import "stepper";
+/*
+    -- end_stepper --
+*/
+
+// Style import for 'tabular-navigation-bar' component 
+/*
+    -- start_tabular-navigation-bar --
+*/
+@import "tab-navbar";
+/*
+    -- end_tabular-navigation-bar --
+*/
+
+// Style import for 'table' component 
+/*
+    -- start_table --
+*/
+@import "table";
+/*
+    -- end_table --
+*/
+
+// Style import for 'user-details' component 
+/*
+    -- start_user-details --
+*/
+@import "user-details";
+/*
+    -- end_user-details --
+*/
+
+// Style import for 'user-preview' component 
+/*
+    -- start_user-preview --
+*/
+@import "user-preview";
+/*
+    -- end_user-preview --
+*/
+
+/*
+    End of 'components' section.
+*/

@@ -1,0 +1,514 @@
+<app-header></app-header>
+<div [style.background-color]="bgColor" style="width:90%" class="container md container--overview a-examples">
+
+    <mat-tab-group dynamicHeight>
+
+        <mat-tab class="tab-title" label="DATA BINDING">
+
+            <span class="basic-text">
+                Communication betweeen template and component.
+            </span>
+
+            <mat-expansion-panel class="container md">
+                <mat-expansion-panel-header class="tab-title">
+                    INTERPOLATION BINDING
+                </mat-expansion-panel-header>
+
+                <span class="basic-text">
+                    One way binding from NgComponent to Template that uses template expression '{{expr()}}'.
+                </span>
+                <div class="binding-text">
+                    <h4 matTooltip="Simple interpolation binding">{{title}}</h4>
+                    <h4 matTooltip="Interpolation function expression">{{ interpopationFunctionExample()
+                        }}
+                    </h4>
+                    <h4 matTooltipPosition="before" matTooltip="What is 1 + 2?">{{1+2}}</h4>
+                </div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="container md">
+                <mat-expansion-panel-header class="tab-title">
+                    PROPERTY BINDING
+                </mat-expansion-panel-header>
+
+                <span class="basic-text">
+                    Can be used for both one way or two way binding.
+                </span>
+
+                <div class="binding-text">
+                    <h4 matTooltip="This tooltip is example of one way property binding (component->template). Use it only when data does not change. ">Lorem
+                        Ipsum
+                    </h4>
+                    <h4 [style.color]="fontColor" matTooltip="One way property binding (component->template) with change detection for data source. Uses [] syntax around target.">Lorem
+                        Ipsum
+                    </h4>
+                    <mat-form-field appearance="fill" matTooltip="Two way property binding. Uses [()] syntax around target.">
+                        <mat-label>Color</mat-label>
+                        <input type="text" matInput placeholder="Color" [(ngModel)]="fontColor">
+                    </mat-form-field>
+                    <div>
+                        <button (click)="onBtnClick()" mat-button matTooltipPosition="before" matTooltip="One way property binding (template->component). Dispaches event. Uses () syntax around source."
+                            style="background-color:#03A9F4;color:whitesmoke;">Click here
+                        </button>
+                    </div>
+
+                </div>
+
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="container md">
+                <mat-expansion-panel-header class="tab-title">
+                    STRUCTURAL BUILT IN DIRECTIVES
+                </mat-expansion-panel-header>
+
+                <div class="binding-text">
+                    <mat-form-field appearance="fill" matTooltip="Two way property binding with additional logic in component. Uses getter/setter">
+                        <mat-label>Filter</mat-label>
+                        <input type="text" matInput placeholder="Filter" [(ngModel)]="filter">
+                    </mat-form-field>
+                    <div>
+                        <span matTooltip="Repeat a template for each item in a list" class="basic-text">*NgFor
+                        </span>
+                        <ul *ngFor="let n of filteredNumbers">
+                            <li>{{n}}</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-top:15px;">
+                        <div>
+                            <span matTooltip="Removes DOM element(s) if expression is falsy" class="basic-text">*NgIf
+                            </span>
+                        </div>
+
+                        <mat-slide-toggle [(ngModel)]="isShowing">
+                            <span class="binding-text" *ngIf="isShowing">Showing Content</span>
+                        </mat-slide-toggle>
+                    </div>
+
+
+                    <div style="margin-top:15px;">
+                        <div style="margin-bottom:15px;">
+                            <span matTooltip="Switching among alternative views based on condition" class="basic-text">[ngSwitch]
+                            </span>
+                        </div>
+
+                        <mat-radio-group [(ngModel)]="selectedStatus">
+                            <mat-radio-button *ngFor="let status of statuses;" [value]="status">
+                                <span style="margin-right:5px">Status {{status}}</span>
+                            </mat-radio-button>
+                        </mat-radio-group>
+
+                        <div style="margin-top:10px;" [ngSwitch]="selectedStatus">
+                            <span style="color:#10a518" *ngSwitchCase="1">Template for status <span style="color:red;font-weight: bold">1</span></span>
+                            <span style="color:#10a518" *ngSwitchCase="2">Template for status <span style="color:red;font-weight: bold">2</span></span>
+                            <span style="color:#10a518" *ngSwitchCase="3">Template for status <span style="color:red;font-weight: bold">3</span></span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </mat-expansion-panel>
+
+        </mat-tab>
+
+        <mat-tab class="tab-title" label="ROUTING & NAVIGATION">
+            <div>
+
+                <mat-expansion-panel class="container md">
+                    <mat-expansion-panel-header class="tab-title">
+                        ANCHOR & PROGRAMMATIC NAVIGATION
+                    </mat-expansion-panel-header>
+
+                    <nav mat-tab-nav-bar>
+                        <a matTooltip="Basic navigation with [routerLink]" style="color:white" mat-tab-link
+                            [routerLink]="['/item/overview']"> item/overview </a>
+                        <a matTooltip="Navigation with [routerLink] with passed in parameter" style="color:white"
+                            mat-tab-link [routerLink]="['/item/edit', 1]">item/edit/1</a>
+                        <a matTooltip="Adding CSS class on active route with [routerLinkActive]" style="color:white"
+                            mat-tab-link [routerLinkActive]="['link-active']" [routerLink]="['/angular/example']">
+                            Active route </a>
+                        <a matTooltip="Programmatic route navigation" style="color:white" mat-tab-link (click)="programmaticBasicNavigation()">
+                            Home </a>
+
+                    </nav>
+
+                </mat-expansion-panel>
+
+
+                <mat-expansion-panel class="container md">
+                    <mat-expansion-panel-header class="tab-title">
+                        QUERY PARAMETERS & READING ROUTE PARAMETERS
+                    </mat-expansion-panel-header>
+
+                    <nav mat-tab-nav-bar>
+                        <a matTooltip="Passing query parameters with [queryParams]" style="color:white" mat-tab-link
+                            [routerLink]="['/angular/example']" [queryParams]="{bgColor:'#5332e5'}"> Query
+                            parameter
+                        </a>
+                        <a style="color:white" mat-tab-link [routerLink]="['/angular/example']" (click)="programmaticQueryParams()">
+                            Programmatic
+                            Query parameter</a>
+                        <a matTooltip="Retain query parameters on navigation with queryParamsHandling" style="color:white"
+                            mat-tab-link [routerLink]="['/angular/example']" queryParamsHandling="preserve"> Preserve
+                            query params
+                        </a>
+                        <a style="color:white" mat-tab-link [routerLink]="['/angular/example']"> Reset</a>
+                    </nav>
+
+                </mat-expansion-panel>
+
+                <mat-expansion-panel class="container md">
+                    <mat-expansion-panel-header class="tab-title">
+                        INVALID ROUTE (ROUTE NOT FOUND)
+                    </mat-expansion-panel-header>
+
+                    <span class="basic-text">
+                        Defined as {{ '{' }} path: '**', component: RouteNotFoundComponent {{ '}' }} in app.module.ts
+                    </span>
+
+                    <nav mat-tab-nav-bar>
+                        <a style="color:white" mat-tab-link [routerLink]="['/XYZ']"> Example 1</a>
+                        <a style="color:white" mat-tab-link [routerLink]="['/ASDF']"> Example 2</a>
+                        <a style="color:white" mat-tab-link [routerLink]="['/QWERTY']"> Example 3</a>
+                    </nav>
+
+                </mat-expansion-panel>
+
+                <mat-expansion-panel class="container md">
+
+                    <mat-expansion-panel-header class="tab-title">
+                        ROUTE DATA
+                    </mat-expansion-panel-header>
+
+
+                    <span class="basic-text">
+                        JS Object that is passed on route initialization. Cannot be changed during application
+                        lifetime.
+                    </span>
+                    <div>
+                        <code>
+                        {{routeData | json}}
+                    </code>
+                    </div>
+
+                </mat-expansion-panel>
+
+
+                <mat-expansion-panel class="container md">
+
+                    <mat-expansion-panel-header class="tab-title">
+                        CHILD ROUTE
+                    </mat-expansion-panel-header>
+
+                    <span class="basic-text">
+                        Child component is defined in 'children' property of parents route definition object. Its
+                        content is rendered inside parent's
+                        router-outlet directive.
+                    </span>
+
+                    <nav mat-tab-nav-bar>
+                        <a style="color:white" mat-tab-link [routerLink]="['/angular/example/child']"> Activate child
+                            route</a>
+                        <a style="color:white" mat-tab-link [routerLink]="['/angular/example']"> Back</a>
+                    </nav>
+
+                    <router-outlet></router-outlet>
+
+                </mat-expansion-panel>
+
+                <mat-expansion-panel class="container md">
+
+                    <mat-expansion-panel-header class="tab-title">
+                        PROTECTING ROUTES (ROUTE GUARDS)
+                    </mat-expansion-panel-header>
+
+                    <span class="basic-text">
+                        Action is done before route navigation occurs. Must be defined in RouterModule property of
+                        parent module.
+                    </span>
+
+                    <ul class="basic-text">
+                        <li>CanActivate
+                            <mat-slide-toggle [(ngModel)]="canActivateItemsRoute">
+                                <span [style.color]="canActivateItemsRoute ? 'green':'tomato'" style="font-weight:bold;">Items
+                                    Overview Route {{canActivateItemsRoute ? 'can' : 'can not'}} be activated!
+                                </span>
+                            </mat-slide-toggle>
+                            <a style="color:white" [routerLink]="['/item/overview']"> Go To Items Overview </a>
+                        </li>
+                        <li>CanDeactivate
+                            <mat-slide-toggle [(ngModel)]="canDeactivate">
+                                <span [style.color]="canDeactivate ? 'green':'tomato'" style="font-weight:bold;">Route
+                                    {{canDeactivate
+                                    ? 'can' : 'can not'}} be deactivated!
+                                </span></mat-slide-toggle>
+                        </li>
+                        <li matTooltip="Fetches data before allowing route navigation. Example: ItemDetailsResolver">
+                            Resolve <span style="color:red">*</span>
+                        </li>
+                        <li matTooltip="Used to prevent the application from loading entire modules lazily if the user is not authorized"><span
+                                matBadge="2" matBadgeColor="warn"></span>CanLoad <span style="color:red">*</span></li>
+                    </ul>
+
+                </mat-expansion-panel>
+
+            </div>
+        </mat-tab>
+
+        <mat-tab class="tab-title" label="DYNAMIC FORMS">
+            <div>
+                <form [formGroup]="dynamicFg">
+                    <div formArrayName="categories">
+
+                        <div *ngFor="let c of getCategoriesControl().controls;let i = index;">
+                            <div [formGroupName]="i">
+                                <section class="ref-details__question-header">
+                                    <h3 style="color:whitesmoke;font-size:1.2rem;" class="overline">{{i+1}}. Category</h3>
+                                    <button type="button" mat-button color="primary" class="btn" (click)="removeCategory(i)">Remove</button>
+                                </section>
+                                <section class="question__question-text">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Category description</mat-label>
+                                        <textarea appi matInput placeholder="Category Description" formControlName="text"
+                                            rows="2"></textarea>
+                                    </mat-form-field>
+                                </section>
+
+                                <div formArrayName="items" *ngFor="let i of c.controls.items.controls; let j = index;">
+                                    <div [formGroupName]="j">
+                                        <section class="question__answer">
+                                            <mat-form-field appearance="fill">
+                                                <mat-label>Item {{j+1}}</mat-label>
+                                                <input type="text" matInput placeholder="Item name" formControlName="text">
+                                            </mat-form-field>
+                                            <button type="button" mat-icon-button (click)="removeItem(j,c.controls.items)">
+                                                <mat-icon>delete</mat-icon>
+                                            </button>
+                                        </section>
+                                    </div>
+                                </div>
+
+                                <div class="answer__btn-container">
+                                    <button mat-button color="primary" class="btn btn--medium" (click)="addItem(c.controls.items)">Add
+                                        Item
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="question__btn-container">
+                <button mat-stroked-button color="primary" class="btn btn--outlined btn--medium" (click)="addCategory()">Add
+                    Category
+                </button>
+            </div>
+        </mat-tab>
+
+        <mat-tab label="COMPONENT COMMUNICATION">
+
+            <div>
+                <b class="basic-text">NgModules</b> are containers for a cohesive block of code dedicated to an
+                application domain, a workflow, or a closely related set of capabilities. They are decorated with
+                @NgModule decorator.
+            </div>
+            <div>
+                <b class="basic-text">NgComponents</b> are Views that are defined by associated HTML template and class
+                which is decorated with @NgComponent decorator that contains view's logic.
+            </div>
+            <div>
+                <b class="basic-text">Services</b> encapsulate reusable logic. Singletons. Injected through class
+                constructor. Decorated with @Injectable decorator.
+            </div>
+            <div>
+                <i><b class="basic-text">Note</b>: app-reusable component used in examples below is defined in
+                    shared/reusable. Child component's body is marked with material divider. </i>
+            </div>
+
+            <mat-expansion-panel class="container md">
+                <mat-expansion-panel-header class="tab-title">
+                    NESTED COMPONENTS
+                </mat-expansion-panel-header>
+                <div class="description-text"> This component was injected into parent through selector
+                    ('app-reusable') </div>
+                <app-reusable [exampleType]="0"></app-reusable>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="container md">
+                <mat-expansion-panel-header class="tab-title">
+                    PASSING DATA THROUGH SERVICES
+                </mat-expansion-panel-header>
+                <div class="description-text"> Services are singletons and can be used to pass data from one component
+                    to other. </div>
+                <app-reusable [exampleType]="1"></app-reusable>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="container md">
+                <mat-expansion-panel-header class="tab-title">
+                    PARENT->CHILD COMMUNICATION
+                </mat-expansion-panel-header>
+                <div class="description-text" style="color:whitesmoke"> Parent->Child communication is done through
+                    @Input decorators defined in
+                    child component.
+                </div>
+                <div class="description-text" style="color:whitesmoke"> Data is passed in through directive which has
+                    same name as property
+                    decorated with @Input.</div>
+                <div class="description-text" style="color:whitesmoke"> ngOnChanges lifeCycle hook can be used to track
+                    changes on all @Input
+                    properties</div>
+
+                <app-reusable [exampleType]="2" [dataFromParent]="obj"></app-reusable>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="container md">
+                <mat-expansion-panel-header class="tab-title">
+                    CHILD->PARENT COMMUNICATION
+                </mat-expansion-panel-header>
+
+                <div class="description-text" style="color:whitesmoke"> Child->Parent communication is done through
+                    @Output decorators defined
+                    in child component.</div>
+                <div class="description-text" style="color:whitesmoke"> Event is raised through EventEmitter. Parent
+                    must listen to these
+                    events.</div>
+                <app-reusable (notifyParent)="handleEventEmittedByChild($event)" [exampleType]="3"></app-reusable>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="container md">
+                <mat-expansion-panel-header class="tab-title">
+                    CALLING CHILD FUNCTIONS FROM PARENT
+                </mat-expansion-panel-header>
+                <div class="description-text" style="color:whitesmoke"> To reference child component in parent we can
+                    use template variable.</div>
+                <div class="description-text" style="color:whitesmoke"> Template variables are used in selectors and
+                    are prefixed with <b>#</b></div>
+                <div class="description-text" style="color:whitesmoke"> To get a handler to template variable in
+                    parent, use @ViewChild
+                    decorator</div>
+                <app-reusable #childRef [exampleType]="4"></app-reusable>
+                <button mat-stroked-button color="primary" class="btn btn--outlined btn--medium" (click)="callChildFunction()">Component
+                    ref
+                </button>
+                <div>
+                    <button mat-stroked-button color="primary" class="btn btn--outlined btn--medium" (click)="childRef.alertUser()">Templat
+                        ref
+                    </button>
+                </div>
+
+            </mat-expansion-panel>
+
+
+            <mat-expansion-panel class="container md">
+                <mat-expansion-panel-header class="tab-title">
+                    COMPONENT CONTENT PROJECTION
+                </mat-expansion-panel-header>
+
+                <div class="description-text" style="color:whitesmoke"> Injecting additional HTML inside
+                    child-component selector.</div>
+                <div class="description-text" style="color:whitesmoke"> ng-content tag is used in child template to
+                    have control on injected
+                    content.</div>
+                <div class="description-text" style="color:whitesmoke"> ng-content has special selector 'select' that
+                    can select specific
+                    sub-content based on needs.</div>
+                <div class="description-text" style="color:whitesmoke"> Note how we'r switching content order with
+                    selector in child template.</div>
+
+                <app-reusable [exampleType]="5">
+                    <h2 class="parent-title">Title from parent!</h2>
+                    <div class="parent-body">
+                        Body from parent
+                    </div>
+                </app-reusable>
+            </mat-expansion-panel>
+
+            <div>
+                <i><b class="basic-text">Note</b>: If you'r using Reactive Programming Pattern with NgRx Store, data is
+                    almost always fetched from the store itself and not directly from components.</i>
+            </div>
+
+        </mat-tab>
+
+        <mat-tab class="tab-title" label="HTTP">
+
+                <span class="basic-text" style="font-style: italic">
+                    Http Client
+                </span>
+    
+                <div style="margin-top:-10px;" class="description-text">
+                    <p> <span class="basic-text">HttpClient</span> is Angular's mechanism for communicating with a remote
+                        server over HTTP.
+                    </p>
+                    <p> HttpClient is defined in <span class="basic-text">HttpClientModule</span>. </p>
+                    <p> To use HttpClient in your Component or Service simply use constructor injection. </p>
+    
+                    <p> HttpClient's methods return RxJS <span class="basic-text">Observable&lt;T&gt;</span></p>
+    
+                    <p> HttpClient should rarely be used directly inside component. Service dedicated for handling HTTP
+                        requests should be used instead. Example of this is <span class="basic-text">ItemService</span>
+                        defined in src/app/services/item.service.ts.</p>
+    
+                </div>
+    
+                <span class="basic-text" style="font-style: italic">
+                    Http Interceptor
+                </span>
+                <div style="margin-top:-10px;" class="description-text">
+                    <p> <span class="basic-text">HttpInterceptor</span> intercepts HTTP requests and transform them before
+                        passing them to the next interceptor or dispatches the request via browser's HTTP APIs to a
+                        backend.
+                    </p>
+    
+                    <p> Can be used to transform both incoming and outgoing requests.</p>
+                    <p> They must be defined in providers array of module that uses them.</p>
+                    <p> They are called in order in which they are defined.</p>
+                    <p> Example of this is <span class="basic-text">SpinnerInterceptorService</span>
+                        defined in src/app/services/interceptors/spinner-interceptor.service.ts.</p>
+    
+                </div>
+    
+            </mat-tab>
+
+        <mat-tab class="tab-title" label="PIPES">
+            <span class="basic-text">
+                Transformation of data before it's rendered in HTML.
+            </span>
+
+            <div class="binding-text">
+                <h4 matTooltipPosition="after" matTooltip="Currency pipe (params: code, display currency image, digit format)">{{price
+                    | currency:'USD':true:'1.2-2'}}</h4>
+                <pre>
+                   <code matTooltipPosition="after" matTooltip="JSON pipe">{{obj | json}}</code>
+               </pre>
+                <h4 matTooltipPosition="after" matTooltip="Date pipe (params:format,timezone,locale) - note: look in app.module for registerLocaleData">{{today
+                    | date:'longDate':'UTC/GMT':'hr-HR'}}</h4>
+
+                <h4 matTooltipPosition="after" matTooltip="Programmatically transformed date with DatePipe">{{formatDateProgrammatically()}}</h4>
+
+                <h4 matTooltipPosition="after" matTooltip="Chaining pipes">{{ today | date:'fullDate' | uppercase }}</h4>
+                <h4 matTooltipPosition="after" matTooltip="Custom pipe (SpaceRemoverPipe)">{{ text | spaceRemover }}</h4>
+
+                <h4 *ngIf="item$ | async as item" matTooltipPosition="after" matTooltip="Async pipe">{{ item.name }}</h4>
+
+
+            </div>
+
+        </mat-tab>
+
+        <mat-tab class="tab-title" label="ANGULAR CLI">
+            <span class="basic-text">
+                Command line interface for Angular. Generating modules / components / building / testing ... through
+                CLI
+            </span>
+            <nav mat-tab-nav-bar>
+                <a style="color:white" target="_blank" mat-tab-link href="https://github.com/angular/angular-cli/wiki">Documentation</a>
+            </nav>
+        </mat-tab>
+
+    </mat-tab-group>
+
+
+</div>

@@ -1,0 +1,112 @@
+<div class="container md container--overview">
+  <mat-toolbar class="dx-button table-btn center"><a style="color:#10a518 !important;font-weight: bold;" [routerLink]="['/item/overview']">BACK</a></mat-toolbar>
+
+  <div>
+    <form [formGroup]="form" autocomplete="off" id="item-form" (ngSubmit)="submit()">
+      <section class="ref-details__container">
+        <section class="ref-details__general-info">
+          <mat-form-field appearance="fill">
+            <h4 class="title">Simple input with custom validator</h4>
+            <mat-label>Name</mat-label>
+            <input type="text" matInput placeholder="Name" formControlName="name" [errorStateMatcher]="matcher">
+            <mat-error *ngIf="form.controls.name.hasError('required')">
+              <strong> Name is required!</strong>
+            </mat-error>
+            <mat-error *ngIf="form.controls.name.hasError('invalidName')">
+              <strong>Missing character '7' in name!</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <h4 class="title">Async validator with 500ms throttle + built in email validator</h4>
+            <input type="text" matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher">
+            <mat-error *ngIf="form.controls.email.hasError('required')"> Email is
+              <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="form.controls.email.hasError('email')">
+              <strong>Needs to be valid email.</strong>
+            </mat-error>
+            <mat-error *ngIf="form.controls.email.hasError('emailExists')">This e-mail already exists</mat-error>
+          </mat-form-field>
+        </section>
+
+        <section class="ref-details__general-info">
+          <div class="form-section">
+
+            <h4 class="title">Single select dropdown (@ng-select/ng-select)</h4>
+
+            <ng-select [clearable]="false" [items]="categories" bindLabel="name" bindValue="id" labelForId="categories" placeholder="Category"
+              clearAllText="Clear" formControlName="categoryId">
+            </ng-select>
+          </div>
+
+
+          <div class="form-section">
+
+            <h4 class="title">Multi-select dropdown (@ng-select/ng-select)</h4>
+
+            <ng-select [items]="parts" bindLabel="name" bindValue="id" labelForId="parts" [multiple]="true" clearAllText="Clear" formControlName="parts">
+            </ng-select>
+          </div>
+        </section>
+
+
+        <section class="ref-details__general-info">
+
+          <div class="form-section">
+
+            <h4 class="title">DevExtreme Date Box With Custom Validation (START DATE)</h4>
+
+            <dx-date-box (onOpened)="onOpened($event)" formControlName="from" type="datetime">
+              <dx-validator>
+                <dxi-validation-rule type="custom" [validationCallback]="fromValidationCallback"></dxi-validation-rule>
+              </dx-validator>
+
+            </dx-date-box>
+          </div>
+          <div class="form-section">
+
+            <h4 class="title">DevExtreme Date Box With Custom Validation (END DATE)</h4>
+            <dx-date-box (onOpened)="onOpened($event)" formControlName="to" type="datetime">
+              <dx-validator>
+                <dxi-validation-rule type="custom" [validationCallback]="toValidationCallback"></dxi-validation-rule>
+              </dx-validator>
+
+            </dx-date-box>
+          </div>
+
+        </section>
+
+
+        <section class="ref-details__general-info">
+
+          <mat-radio-group formControlName="optionId">
+            <h4 class="title">Radio button with subscription to value changes on Form Control</h4>
+            <mat-radio-button *ngFor="let o of options;" [value]="o.id">
+              <span style="margin-right:10px">{{o.text}}</span>
+            </mat-radio-button>
+            <div style="color:#e0596b;margin-top:15px;font-size: 1.3rem;">You selected: <span style="color:#10a518">{{selectedOption}}</span></div>
+          </mat-radio-group>
+        </section>
+
+
+        <section class="ref-details__general-info">
+          <div class="form-section">
+            <h4 class="title">Basic Checkbox</h4>
+            <mat-checkbox formControlName="isActive">Active</mat-checkbox>
+          </div>
+
+        </section>
+
+      </section>
+
+    </form>
+
+  </div>
+
+  <mat-toolbar class="dx-button table-btn center">
+    <button mat-stroked-button type="submit" form="item-form" style="width:100px;height:50px;color:#03A9F4 !important;font-weight: bold;">SUBMIT</button>
+  </mat-toolbar>
+
+</div>

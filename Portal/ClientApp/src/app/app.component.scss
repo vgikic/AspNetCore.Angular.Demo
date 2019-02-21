@@ -1,0 +1,38 @@
+@media (max-width: 767px) {
+    /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
+    .body-content {
+      padding-top: 50px;
+    }
+  }
+  .user-preview{
+    &.active{
+      visibility: visible
+    }
+    visibility:hidden
+  }
+  .mat-spinner{
+    &.visible{
+      visibility: visible
+    }
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    z-index:9999;
+    visibility:hidden
+  }
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .script-loader{
+    &.visible{
+      visibility: visible;
+    }
+     position:absolute;
+     top: 50%;
+    justify-content: center;
+    visibility:hidden;
+    z-index:9999;
+    color:#f45342;
+  }

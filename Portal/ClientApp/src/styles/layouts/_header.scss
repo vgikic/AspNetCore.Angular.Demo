@@ -1,0 +1,42 @@
+.header {
+  background-color: #fff;
+  box-shadow: 0 1px 2px 0 #b6b6b6;
+  position: relative;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.header--left {
+  display: inline-flex;
+  align-items: center;
+}
+
+.mat-tab-links .mat-tab-link {
+  font-weight: bold;
+  font-size: .875rem;
+  text-decoration: none;
+  color: $mdc-theme-on-primary;
+  height: 82px;
+  text-transform: uppercase;
+  line-height: 1.11;
+  letter-spacing: 1.3px;
+}
+
+.mat-tab-link.mat-tab-label-active {
+  color: $mdc-theme-primary;
+}
+
+.logo {
+  width: 2rem;
+}
+
+.header-title {
+  font-size: 1rem;
+  line-height: 1.69;
+  margin-right: 3rem;
+  margin-left: .875rem;
+}
